@@ -1,5 +1,11 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 const axios = require('axios');
+console.log("hjv");
+
+// fetch('http://localhost:3000/sites')
+//     .then(res => res.json())
+//     .then(data => console.log(data))
+
 getSites();
 async function getSites() {
 
@@ -7,9 +13,7 @@ async function getSites() {
             // console.log("hi");
         })
         .then(function(response) {
-            let city = response.data[0].cityName;
-            console.log(response.data[0].cityName);
-            // $("#myTopnav").append('<a href="' + city + '.html">' + city + '</a>')
+            createNavigationBar(response.data);
         })
         .catch(function(error) {
             console.log(error);
@@ -17,6 +21,21 @@ async function getSites() {
         .then(function() {
             // always executed
         });
+}
+
+function createNavigationBar(citiesArr) {
+    var myTopnav = document.getElementById("myTopnav");
+    for (let i = 0; i < citiesArr.length; i++) {
+        let city = citiesArr[i].cityName;
+        console.log(citiesArr[i].cityName);
+
+        let a = document.createElement('a');
+        var linkText = document.createTextNode(city);
+        a.appendChild(linkText);
+        a.title = "" + city;
+        a.href = city + '.html';
+        myTopnav.appendChild(a);
+    }
 }
 },{"axios":2}],2:[function(require,module,exports){
 module.exports = require('./lib/axios');

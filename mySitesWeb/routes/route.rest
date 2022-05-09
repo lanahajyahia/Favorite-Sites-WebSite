@@ -1,0 +1,19 @@
+GET http://localhost:3000/sites
+
+###
+
+GET http://localhost:3000/sites/13
+
+###
+
+POST http://localhost:3000/sites
+Content-Type: application/json
+
+{
+    "cityName":"Amsterdam",
+    "siteName":"Artis zoo Amsterdam",
+    "desc": "Natura Artis Magistra (Latin for \"Nature is the teacher of the arts\"), commonly known just as Artis, is a zoo in the centre of Amsterdam. It is the oldest zoo in the Netherlands and one of the oldest zoos of mainland Europe. In addition to the zoo, Artis also contains an aquarium, a planetarium, an arboretum, and a fairly large art and sculpture collection. A part of the art collection is on display in the Aquarium building of the zoo. Artis contains 27 historically significant(listed) buildings, bridges, and ponds most of which are still used as animal enclosures, making it a unique place of 19th-century cultural heritage.",
+    "images": ["https://cdn.getyourguide.com/img/tour/5b4b05fed1f58.jpeg/98.jpg"
+    ,"https://skiptheline.tickets/wp-content/uploads/2018/03/NL-Artis-ingang.jpg"
+    ,"https://static.smarttravelapp.com/data/pois/7829_Artis3_1493611876.jpg"]
+}

@@ -1,0 +1,62 @@
+body {
+    font-family: monospace;
+    background-color: #f8f8f8;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-size: 18pt;
+    margin: 1em;
+}
+
+#mainTitle {
+    font-size: 22pt;
+    font-weight: bold;
+    text-align: center;
+    color: palevioletred;
+    margin: 1em;
+}
+
+.topnav {
+    text-align: center;
+}
+
+.footer {
+    font-size: 1.1rem;
+    box-sizing: inherit;
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    background-color: #f8f8f8;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+}
+
+article {
+    float: left;
+    padding: 2em;
+    background-color: #f1f1f1;
+    height: 100%;
+    font-size: 14pt;
+}
+
+.homelink {
+    display: flex;
+    font-size: 20pt;
+    margin: 0;
+    color: palevioletred;
+}
+
+.cityimages {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    gap: 1em;
+    overflow-x: auto;
+}

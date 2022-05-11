@@ -14,51 +14,43 @@
 <body>
 
     <h1 id="mainTitle">Five most beautiful sites I have visited</h1>
-    <div class="topnav" id="myTopnav">
-        <!-- <a href="index.html" class="active">Map</a> -->
-        <!-- <a href="paris.html">Paris</a>
-        <a href="berlin.html">Berlin</a>
-        <a href="amesterdam.html">Amsterdam</a>
-        <a href="istanbul.html">Istanbul</a>
-        <a href="barcelona.html">Barcelona</a> -->
-    </div>
-
+    <div class="topnav" id="myTopNav"></div>
     <div>
-        <!-- <img style="width: fit-content;" src="file:///C:/Users/hajya/Downloads/MAP2.jpg" alt="Workplace" usemap="#workmap"> -->
-
-        <!-- <map name="workmap">
-            <area shape="rect" coords="432,191,347,247" alt="amesterdam" href="amesterdam.html">
-            <area coords="319,495,428,559" shape="rect" alt="barcelona" href="barcelona.html">
-            <area coords="431,308,517,356" shape="rect" alt="berlin" href="berlin.html">
-            <area coords="847,557,941,620" shape="rect" alt="istanbul" href="istanbul.html">
-            <area coords="240,369,329,420" shape="rect" alt="paris" href="paris.html">
-
-        </map> -->
+        <button id="addSiteBtn" type="button">Add site</button>
+        <button id="removeSiteBtn" type="button">Remove site</button>
     </div>
+    <div id="addSiteForm">
+
+    </div>
+    <iframe src="site.html" style="height:500px;width:500px" title="Iframe Example"></iframe>
+
+    <!-- <div id="selectedSite">
+
+        <header id="headerSite">
+
+        </header>
+
+        <section>
+
+            <article id="articleSite">
+            </article>
+        </section>
+        <div class="cityimages">
+            <img src="https://www.fcbarcelona.com/fcbarcelona/photo/2019/03/26/45049642-dd56-442f-b630-14bcda46ffa9/AYEpJpVS.jpg" alt="" width="500" height="400">
+            <img src="https://www.fcbarcelona.com/photo-resources/2021/05/12/6ba41066-ce7c-4ff2-9b0c-8b59c53ed443/mini_BarcaCafe_067.JPG?width=1200&height=750" alt="" width="500" height="400">
+            <img src="https://outdoortrip-web.s3.eu-central-1.amazonaws.com/3508-camp-nou-experience-with-brunch-for-fc-barcelona-fans/camp-nou-experience-with-brunch-for-fc-barcelona-fans.5e43f05edb70a-full.jpg" alt="" width="500" height="400">
+            <img src="https://www.fcbarcelona.com/photo-resources/2021/08/09/276ad270-e5c6-453d-8d9f-212417ad7cb3/Camp-Nou-3.jpg?width=1200&height=750" alt="" width="500" height="400">
+
+        </div> -->
 
 
 
+    </div>
 </body>
+
 <div class="footer">
     <span>Created by Lana Hajyahia </span>
 </div>
 
-<!-- <script src="/axios.min.js"></script>
-<script>
-    axios.get('/sites', {
-            // console.log("hi");
-        })
-        .then(function(response) {
-            let city = response.data[0].cityName;
-            console.log(response.data[0].cityName);
-            $("#myTopnav").append('<a href="' + city + '.html">' + city + '</a>')
-        })
-        .catch(function(error) {
-            console.log(error);
-        })
-        .then(function() {
-            // always executed
-        });
-</script> -->
 
 </html>

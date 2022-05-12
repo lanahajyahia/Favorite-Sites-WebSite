@@ -1,42 +1,62 @@
-// import 'regenerator-runtime/runtime';
-// import axios from 'axios';
+if (window.location.href == 'http://127.0.0.1:5500/mySitesWeb/client/index.html')
+    loadSites()
 
-// define(['axios'], function($) {
-// return function() {};
-
-
-const axios = require('axios');
-getSites();
-async function getSites() {
-
-    axios.get('http://localhost:3000/sites', {
-            // console.log("hi");
+function loadSites() {
+    getSites().then(data => {
+            createNavigationBar(data)
         })
-        .then(function(response) {
-            let city = response.data[0].cityName;
-            console.log(response.data[0].cityName);
-            // $("#myTopnav").append('<a href="' + city + '.html">' + city + '</a>')
-        })
-        .catch(function(error) {
-            console.log(error);
-        })
-        .then(function() {
-            // always executed
-        });
+        .catch(err => console.log(err))
 }
-// import fetch from "node-fetch";
 
-// fetch('http://localhost:3000/sites', {
-//         method: 'GET', // or 'PUT'
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Accept': 'application/json',
-//         }
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log('Success:', data);
-//     })
-//     .catch((error) => {
-//         console.error('Error:', error);
-//     });
+function createNavigationBar(sitesArr) {
+    var myTopNav = document.getElementById("myTopNav");
+    for (let i = 0; i < sitesArr.length; i++) {
+
+
+        let site = sitesArr[i];
+        let siteName = site.cityName;
+
+        console.log("siteName " + siteName);
+        var containerDiv = document.createElement("div");
+        containerDiv.setAttribute("id", site._id);
+        var btn = document.createElement("input");
+        //Assign different attributes to the element. 
+        btn.setAttribute("type", "button");
+        btn.setAttribute("value", siteName);
+        btn.setAttribute("name", siteName);
+        // btn.setAttribute("id", site._id);
+        btn.onclick = function() { getClickedSite(site._id) };
+
+        var xBtn = document.createElement("input");
+        //Assign different attributes to the element. 
+        xBtn.setAttribute("type", "button");
+        xBtn.setAttribute("value", 'x');
+        xBtn.setAttribute("name", 'x');
+        xBtn.setAttribute("class", "removeSite");
+        xBtn.style.display = 'none';
+        xBtn.onclick = function() { deleteClickedSite(site._id) };
+
+        containerDiv.appendChild(xBtn);
+        containerDiv.appendChild(btn);
+
+        myTopNav.appendChild(containerDiv);
+    }
+}
+
+async function getClickedSite(siteId) {
+    getOneSite(siteId).then(data => {
+            // response.json({ message: 'Request received!', data })
+            console.log(data)
+        })
+        .catch(err => console.log(err));
+}
+
+async function deleteClickedSite(siteId) {
+    deleteSite(siteId);
+    document.getElementById(siteId).remove();
+}
+
+function showXBtn() {
+    $('.removeSite').toggle();
+    // document.getElementsByClassName('removeSite').style.display = 'block';
+}

@@ -2,7 +2,7 @@ GET http://localhost:3000/sites
 
 ###
 
-GET http://localhost:3000/sites/6268566a12e14e1e97741581
+GET http://localhost:3000/sites/626d419151ed011e9f28a7cf
 
 ###
 
@@ -10,7 +10,7 @@ POST http://localhost:3000/sites
 Content-Type: application/json
 
 {
-    "cityName":"Paris",
+    "cityName":"lana3",
     "siteName":"Disney Land Paris",
     "desc": "Disneyland Paris is an entertainment resort in Chessy, France, 32 km (20 mi) east of Paris. It encompasses two theme parks, resort hotels, Disney Nature Resorts, a shopping, dining and entertainment complex, and a golf course. Disneyland Park is the original theme park of the complex, opening in 1992. A second theme park, Walt Disney Studios Park, opened in 2002. Disneyland Paris celebrated its 25th anniversary in 2017, by when 320 million people had visited, making it the most visited theme park in Europe.[1] It is the second Disney park outside the United States, following the opening of the Tokyo Disney Resort in 1983, and the largest.",
     "images": ["http://www.disneyfoodblog.com/wp-content/uploads/2011/07/DSC03199.jpg" ,"https://www.anightowlblog.com/wp-content/uploads/2019/09/Best-Things-to-Eat-at-Disneyland-Paris-2.jpg" ,"https://www.sortiraparis.com/images/80/87950/484853-visuels-disneyland-paris-chateau.jpg"]

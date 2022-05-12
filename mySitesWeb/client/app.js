@@ -1,73 +1,80 @@
 const axios = require('axios');
+const promise = require('promise');
 
-var selectedSiteJson;
-if (window.location.href == 'http://127.0.0.1:5500/mySitesWeb/client/index.html')
-    getSites();
-async function getSites() {
+// get sites
+window.getSites = function getSites() {
+        // create a promise for the axios request
+        let url
+        const promise = axios.get('http://localhost:3000/sites')
 
-    axios.get('http://localhost:3000/sites', {
-            // console.log("hi");
-        })
-        .then(function(response) {
-            getNavigationBar(response.data);
-        })
-        .catch(function(error) {
-            console.log(error);
-        })
-        .then(function() {
-            // always executed
-        });
-}
+        // using .then, create a new promise which extracts the data
+        const dataPromise = promise.then((response) => response.data)
 
-
-async function getOneSite(siteId) {
-
-    axios.get('http://localhost:3000/sites', {
-            params: { _id: siteId }
-
-        })
-        .then(function(response) {
-            console.log("from here", response);
-            console.log("hi");
-            // getNavigationBar(response.data);
-        })
-        .catch(function(error) {
-            console.log(error);
-        })
-        .then(function() {
-            // always executed
-        });
-}
-// getOneSite("6268566a12e14e1e97741581")
-
-function getClickedSite(siteId) {
-    // alert(siteId)
-    getOneSite(siteId)
-        // getOneSite("6268566a12e14e1e97741581")
-
-}
-
-function getNavigationBar(citiesArr) {
-    var myTopNav = document.getElementById("myTopNav");
-    for (let i = 0; i < citiesArr.length; i++) {
-        let city = citiesArr[i].cityName;
-        console.log(citiesArr[i].cityName);
-        var element = document.createElement("input");
-        //Assign different attributes to the element. 
-        element.setAttribute("type", "button");
-        element.setAttribute("value", city);
-        element.setAttribute("name", city);
-        element.onclick = function() { getClickedSite(this.id) };
-
-        myTopNav.appendChild(element);
-
-        // let a = document.createElement('a');
-        // var linkText = document.createTextNode(city);
-        // a.appendChild(linkText);
-        // a.id = "" + citiesArr[i]._id;
-        // a.title = "" + city;
-        // a.onclick = function() { getClickedSite(this.id) };
-        // a.href = 'site.html';
-        // myTopNav.appendChild(a);
+        // return it
+        return dataPromise
     }
+    // now we can use that data from the outside!
+
+// window.getSites = async function getSites() {
+
+//     axios.get('http://localhost:3000/sites', {})
+//         .then(function(response) {
+//             return response.data;
+//         })
+//         .catch(function(error) {
+//             console.log(error);
+//         })
+//         .then(function() {
+//             // always executed
+
+//         });
+// }
+
+
+window.getOneSite = async function getOneSite(siteId) {
+    // Optionally the request above could also be done as
+    console.log("getOneSite siteId " + siteId);
+    let url = 'http://localhost:3000/sites/' + siteId;
+    axios.get(url, {})
+        .then(function(response) {
+            console.log("getOneSite response ");
+            console.log(response);
+
+
+        })
+        .catch(function(error) {
+            console.log(error);
+        })
+        .then(function() {
+            // always executed
+        });
 }
+
+window.deleteSite = function deleteSite(siteId) {
+        // Optionally the request above could also be done as
+        console.log("deleteSite siteId " + siteId);
+        let url = 'http://localhost:3000/sites/' + siteId;
+        axios.delete(url, {})
+            .then(function(response) {
+                console.log("deleteSite response ");
+                console.log(response);
+
+            })
+            .catch(function(error) {
+                console.log(error);
+            })
+            .then(function() {
+                // always executed
+            });
+    }
+    // getOneSite("6268566a12e14e1e97741581")
+
+// async function getClickedSite(siteId) {
+//     getOneSite(siteId);
+// }
+
+// async function deleteClickedSite(siteId) {
+//     deleteSite(siteId);
+//     document.getElementById(siteId).remove();
+//     // getSites();
+// }

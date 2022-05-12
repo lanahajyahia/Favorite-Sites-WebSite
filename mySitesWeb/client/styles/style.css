@@ -20,6 +20,7 @@ a {
 
 .topnav {
     text-align: center;
+    display: flex;
 }
 
 .footer {

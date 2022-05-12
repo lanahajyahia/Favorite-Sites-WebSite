@@ -20,6 +20,7 @@ router.get('/', async(req, res) => {
 // get one
 router.get('/:id', getSite, (req, res) => {
     // req.params.id
+    console.log(res.site);
     res.json(res.site)
 })
 

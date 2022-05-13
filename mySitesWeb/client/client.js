@@ -77,10 +77,20 @@ function getClickedSite(siteId) {
 }
 
 function setDataIFrame(data) {
-    setSiteCityName(data.cityName);
-    setSiteName(data.siteName);
-    setSiteArticle(data.desc);
-    setSiteImages(data.images);
+    if (data) {
+        setSiteCityName(data.cityName);
+        setSiteName(data.siteName);
+        setSiteArticle(data.desc);
+        setSiteImages(data.images);
+    } else {
+        setSiteCityName('');
+        setSiteName(
+            "YOU DON'T HAVE ANY SITES<br> click the Add site button"
+        );
+        setSiteArticle('');
+        setSiteImages([]);
+    }
+
 
 }
 
@@ -120,10 +130,15 @@ function deleteClickedSite(siteId) {
 
     // get id of current first child
     let firstChild = document.getElementById("myTopNav").firstChild;
-    let id = firstChild.id;
-    firstChild.children[1].classList.add("selected")
-        // get id and reload iframe of first child""
-    getClickedSite(id);
+    if (firstChild) {
+        let id = firstChild.id;
+        firstChild.children[1].classList.add("selected")
+            // get id and reload iframe of first child""
+        getClickedSite(id);
+    } else {
+        setDataIFrame('');
+    }
+
 
 }
 

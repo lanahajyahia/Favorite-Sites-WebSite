@@ -10,8 +10,8 @@ POST http://localhost:3000/sites
 Content-Type: application/json
 
 {
-    "cityName":"Istanbu5",
-    "siteName":"Taksim square It",
+    "cityName":"fffff",
+    "siteName":"55555",
     "desc": "Taksim Square, situated in Beyoğlu in the European part of Istanbul, Turkey, is a major tourist and leisure district famed for its restaurants, shops, and hotels. It is considered the heart  of the foundation of the Republic of Turkey in 1923, following the Turkish War of Independence.",
     "images": ["http://www.disneyfoodblog.com/wp-content/uploads/2011/07/DSC03199.jpg" ,"https://www.anightowlblog.com/wp-content/uploads/2019/09/Best-Things-to-Eat-at-Disneyland-Paris-2.jpg" ,"https://www.sortiraparis.com/images/80/87950/484853-visuels-disneyland-paris-chateau.jpg"]
 }

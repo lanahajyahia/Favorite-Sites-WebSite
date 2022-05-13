@@ -20,7 +20,7 @@ a {
     font-size: 22pt;
     font-weight: bold;
     text-align: center;
-    color: palevioletred;
+    color: #9c27b0;
     margin: 1em;
 }
 
@@ -32,6 +32,22 @@ a {
 
 #myTopNav div {
     display: grid;
+}
+
+button.topNavButton {
+    background-color: #3e00d4c7;
+    font-size: 22px;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    /* margin: auto; */
+    padding: 0.5em;
+    font-weight: 700;
+    border-radius: 0.3em;
+}
+
+button.topNavButton:hover {
+    background-color: #3e00d478;
 }
 
 input.removeSite {
@@ -60,7 +76,7 @@ input.siteNameButton {
 
 input.siteNameButton:hover,
 input.siteNameButton.selected {
-    color: #3e00d4f0;
+    color: #3e00d49e;
     font-weight: bold;
 }
 
@@ -176,20 +192,19 @@ article {
     width: 100%;
 }
 
-#avatar {
+#image {
     border-bottom: none;
 }
 
 .my-button:hover {
-    color: #000!important;
-    background-color: #ccc!important;
+    background-color: #3e00d49e!important;
 }
 
 .my-red,
 .my-hover-red:hover {
     cursor: pointer;
     color: #fff!important;
-    background-color: #f44336!important;
+    background-color: #3e00d4c7!important;
     border: transparent;
 }
 

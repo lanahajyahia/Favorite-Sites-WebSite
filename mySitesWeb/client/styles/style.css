@@ -4,8 +4,7 @@ body {
 }
 
 body,
-html,
-#siteIframe {
+html {
     height: 100%;
 }
 
@@ -22,6 +21,7 @@ a {
     text-align: center;
     color: #9c27b0;
     margin: 1em;
+    margin-bottom: 0;
 }
 
 #myTopNav {
@@ -47,7 +47,7 @@ button.topNavButton {
 }
 
 button.topNavButton:hover {
-    background-color: #3e00d478;
+    background-color: #3e00d487;
 }
 
 input.removeSite {
@@ -67,7 +67,7 @@ input.removeSite {
 input.siteNameButton {
     border: 0;
     background: transparent;
-    font-size: 22px;
+    font-size: 24px;
     margin: 0 1em 0 0;
     font-weight: 500;
     color: #3e00d4a3;
@@ -76,7 +76,7 @@ input.siteNameButton {
 
 input.siteNameButton:hover,
 input.siteNameButton.selected {
-    color: #3e00d49e;
+    color: #3e00d4de;
     font-weight: bold;
 }
 
@@ -90,29 +90,30 @@ input.siteNameButton.selected {
 }
 
 header {
-    background-color: #f8f8f8;
-    padding: 30px;
     text-align: center;
     font-size: 35px;
+    font-weight: bolder;
 }
 
-article {
-    float: left;
-    padding: 2em;
-    background-color: #f1f1f1;
+#articleSite {
+    padding: 0.5em;
     height: 100%;
-    font-size: 14pt;
+    font-size: 24px;
 }
 
-.imagesSite {
+#imagesSite {
     margin: 0 auto;
     display: flex;
     gap: 1em;
     overflow-x: auto;
+    margin-top: 2em;
 }
 
 #siteIframe {
+    margin-top: 1em;
+    border: 0;
     width: 100%;
+    height: inherit;
 }
 
 
@@ -197,14 +198,26 @@ article {
 }
 
 .my-button:hover {
-    background-color: #3e00d49e!important;
+    background-color: #3e00d487!important;
+}
+
+p.requiredInput.fa.fa-warning {
+    font-size: 14pt!important;
+    float: left;
+    margin: 0.5em;
+    /* padding: 0; */
+    color: red;
+}
+
+p.inputP {
+    margin-bottom: 0;
 }
 
 .my-red,
 .my-hover-red:hover {
     cursor: pointer;
     color: #fff!important;
-    background-color: #3e00d4c7!important;
+    background-color: #3e00d49e!important;
     border: transparent;
 }
 
@@ -220,4 +233,8 @@ article {
 .my-block {
     display: block;
     width: 100%;
+}
+
+input {
+    display: block;
 }

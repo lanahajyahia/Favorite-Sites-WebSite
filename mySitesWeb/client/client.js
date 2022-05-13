@@ -12,6 +12,7 @@ function loadSites() {
 
 function createNavigationBar(sitesArr) {
     var myTopNav = document.getElementById("myTopNav");
+    document.getElementById("myTopNav").innerHTML = '';
     for (let i = 0; i < sitesArr.length; i++) {
         let site = sitesArr[i];
         let siteName = site.cityName;
@@ -103,8 +104,8 @@ function setSiteImages(siteImages) {
         console.log(siteImages[i]);
         let img = document.createElement('img');
         img.src = siteImages[i];
-        let w = 100 / siteImages.length;
-        img.style.width = w + "%";
+        // let w = 100 / siteImages.length;
+        // img.style.width = w + "%";
         img.style.height = "300px";
         img.style.padding = "1em";
 
@@ -148,7 +149,7 @@ function showXBtn() {
 
 /* new site */
 function saveNewSite() {
-    document.getElementById('addSite').style.display = 'none';
+    let reqFlag = false;
     let imagesArr = [];
     let images = document.getElementsByName("image")[0].files;
 
@@ -159,6 +160,32 @@ function saveNewSite() {
     let citySiteName = document.getElementsByName("citySiteName")[0].value;
     let siteDesc = document.getElementsByName("siteDesc")[0].value;
 
+    if (!siteName) {
+        $('#siteNameReq').css('display', 'block')
+        reqFlag = true;
+    }
+    if (!citySiteName) {
+        $('#citySiteNameReq').css('display', 'block')
+        reqFlag = true;
+
+    }
+    if (!siteDesc) {
+        $('#siteDescReq').css('display', 'block')
+        reqFlag = true;
+
+    }
+    if (!reqFlag) {
+        document.getElementById('addSite').style.display = 'none';
+        var siteJson = {
+            "cityName": citySiteName,
+            "siteName": siteName,
+            "desc": siteDesc,
+            "images": imagesArr
+        };
+        createSite(siteJson);
+        window.location.reload();
+    }
+    // loadSites();
     console.log(siteName);
     console.log(citySiteName);
     console.log(siteDesc);

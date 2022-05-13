@@ -14,23 +14,27 @@
 <body>
 
     <h1 id="mainTitle">Most beautiful sites I have visited</h1>
+    <hr style="width:30%;margin-bottom: 1em;">
     <div id="myTopNav"></div>
     <div>
         <button id="addSiteBtn" class="topNavButton" type="button" onclick="document.getElementById('addSite').style.display='block'">Add site</button>
         <button id="removeSiteBtn" class="topNavButton" type="button" onclick="showXBtn()">Remove site</button>
     </div>
-
+    <hr>
     <iframe id="siteIframe" src="site.html" title="Iframe Example"></iframe>
-
+    <hr>
     <div id="addSite" class="my-modal my-animate-opacity">
         <div class="my-modal-content" style="padding:32px">
             <div class="my-container my-white">
                 <i onclick="document.getElementById('addSite').style.display='none'" class="fa fa-remove"></i>
                 <h2 class="my-wide">ADD NEW SITE</h2>
                 <p>Share new site that you have visited</p>
-                <p><input class="my-input my-border" type="text" name="siteName" placeholder="Enter site name" required></p>
-                <p><input class="my-input my-border" type="text" name="citySiteName" placeholder="Enter City site name" required></p>
-                <p><input class="my-input my-border" type="text" name="siteDesc" placeholder="Enter description of site"></p>
+                <p class="inputP"><input class="my-input my-border" type="text" name="siteName" placeholder="Enter site name" required></p>
+                <p id='siteNameReq' class="requiredInput fa fa-warning" style="display:none;"> Site name is required</p>
+                <p class="inputP"><input class="my-input my-border" type="text" name="citySiteName" placeholder="Enter City site name" required></p>
+                <p id='citySiteNameReq' class="requiredInput fa fa-warning" style="display:none;"> City site name is required</p>
+                <p class="inputP"><input class="my-input my-border" type="text" name="siteDesc" placeholder="Enter description of site"></p>
+                <p id='siteDescReq' class="requiredInput fa fa-warning" style="display:none;"> site description is required</p>
                 <p><input class="my-input" type="file" id="image" name="image" name="siteImgs" accept="image/png, image/jpeg" multiple></p>
 
                 <button type="button" class="my-button my-block my-padding-large my-red my-margin-bottom" onclick="saveNewSite()">Add site</button>

@@ -55,20 +55,34 @@ window.getOneSite = async function getOneSite(siteId) {
 }
 
 window.deleteSite = async function deleteSite(siteId) {
-        // Optionally the request above could also be done as
-        console.log("deleteSite siteId " + siteId);
-        let url = 'http://localhost:3000/sites/' + siteId;
-        axios.delete(url, {})
-            .then(function(response) {
-                console.log("deleteSite response ");
-                console.log(response);
+    // Optionally the request above could also be done as
+    console.log("deleteSite siteId " + siteId);
+    let url = 'http://localhost:3000/sites/' + siteId;
+    axios.delete(url, {})
+        .then(function(response) {
+            console.log("deleteSite response ");
+            console.log(response);
 
+        })
+        .catch(function(error) {
+            console.log(error);
+        })
+        .then(function() {
+            // always executed
+        });
+}
+
+window.createSite = async function createSite(data) {
+        axios.post('http://localhost:3000/sites', {
+                cityName: data.cityName,
+                siteName: data.siteName,
+                desc: data.desc,
+                images: data.images
             })
-            .catch(function(error) {
+            .then((response) => {
+                console.log(response);
+            }, (error) => {
                 console.log(error);
-            })
-            .then(function() {
-                // always executed
             });
     }
     // getOneSite("6268566a12e14e1e97741581")

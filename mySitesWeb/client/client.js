@@ -22,7 +22,7 @@ function createNavigationBar(sitesArr) {
 
         // create buttons
         createRemoveSiteBtn(site, containerDiv);
-        createSiteBtn(site, siteName, containerDiv);
+        createSiteBtn(site, siteName, containerDiv, i);
 
         myTopNav.appendChild(containerDiv);
     }
@@ -35,7 +35,9 @@ function createRemoveSiteBtn(site, containerDiv) {
     xBtn.setAttribute("type", "button");
     xBtn.setAttribute("value", 'x');
     xBtn.setAttribute("name", 'x');
-    xBtn.setAttribute("class", "removeSite");
+    xBtn.setAttribute("title", 'remove site');
+    xBtn.classList.add("removeSite"); // "fa", "fa-remove")
+    // xBtn.setAttribute("class", "removeSite");
     xBtn.style.display = 'none';
     xBtn.onclick = function() { deleteClickedSite(site._id) };
 
@@ -43,13 +45,25 @@ function createRemoveSiteBtn(site, containerDiv) {
 
 }
 
-function createSiteBtn(site, siteName, containerDiv) {
+function createSiteBtn(site, siteName, containerDiv, index) {
     var btn = document.createElement("input");
     //Assign different attributes to the element. 
     btn.setAttribute("type", "button");
     btn.setAttribute("value", siteName);
     btn.setAttribute("name", siteName);
-    btn.onclick = function() { getClickedSite(site._id) };
+    if (index == 0) {
+        btn.classList.add("siteNameButton", "selected");
+    } else {
+        btn.classList.add("siteNameButton");
+    }
+    btn.onclick = function() {
+        let element = document.querySelector('.selected');
+        if (element) {
+            element.classList.toggle("selected");
+        }
+        btn.classList.toggle("selected");
+        getClickedSite(site._id);
+    };
 
     containerDiv.appendChild(btn);
 
@@ -105,13 +119,35 @@ function deleteClickedSite(siteId) {
     document.getElementById(siteId).remove();
 
     // get id of current first child
-    let id =
-        document.getElementById("myTopNav").firstChild.id;
-    // get id and reload iframe of first child
+    let firstChild = document.getElementById("myTopNav").firstChild;
+    let id = firstChild.id;
+    firstChild.children[1].classList.add("selected")
+        // get id and reload iframe of first child""
     getClickedSite(id);
 
 }
 
 function showXBtn() {
     $('.removeSite').toggle();
+}
+
+/* new site */
+function saveNewSite() {
+    document.getElementById('addSite').style.display = 'none';
+    let imagesArr = [];
+    let images = document.getElementsByName("image")[0].files;
+
+    for (let i = 0; i < images.length; i++) {
+        imagesArr.push(images[i].name);
+    }
+    let siteName = document.getElementsByName("siteName")[0].value;
+    let citySiteName = document.getElementsByName("citySiteName")[0].value;
+    let siteDesc = document.getElementsByName("siteDesc")[0].value;
+
+    console.log(siteName);
+    console.log(citySiteName);
+    console.log(siteDesc);
+    console.log(imagesArr);
+
+
 }

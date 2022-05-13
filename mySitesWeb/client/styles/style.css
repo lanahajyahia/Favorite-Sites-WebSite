@@ -1,5 +1,5 @@
 body {
-    font-family: monospace;
+    font-family: "Segoe UI", Arial, sans-serif;
     background-color: #f8f8f8;
 }
 
@@ -24,10 +24,44 @@ a {
     margin: 1em;
 }
 
-.topnav {
+#myTopNav {
     text-align: center;
     display: flex;
     justify-content: center;
+}
+
+#myTopNav div {
+    display: grid;
+}
+
+input.removeSite {
+    text-align: left;
+    border: 0;
+    left: 0;
+    background-color: transparent;
+    font-size: 22px;
+    font-weight: bold;
+    justify-content: left;
+    padding: 0;
+    cursor: pointer;
+    /* margin: auto; */
+    float: left;
+}
+
+input.siteNameButton {
+    border: 0;
+    background: transparent;
+    font-size: 22px;
+    margin: 0 1em 0 0;
+    font-weight: 500;
+    color: #3e00d4a3;
+    cursor: pointer;
+}
+
+input.siteNameButton:hover,
+input.siteNameButton.selected {
+    color: #3e00d4f0;
+    font-weight: bold;
 }
 
 .footer {
@@ -54,21 +88,121 @@ article {
     font-size: 14pt;
 }
 
-.homelink {
-    display: flex;
-    font-size: 20pt;
-    margin: 0;
-    color: palevioletred;
-}
-
-.cityimages {
+.imagesSite {
     margin: 0 auto;
-    width: 100%;
     display: flex;
     gap: 1em;
     overflow-x: auto;
 }
 
 #siteIframe {
+    width: 100%;
+}
+
+
+/* add site frame*/
+
+#addSite {
+    display: none;
+}
+
+.my-animate-opacity {
+    animation: opac 0.8s;
+}
+
+.my-modal {
+    z-index: 3;
+    display: none;
+    padding-top: 100px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0 0 0 / 56%);
+}
+
+@media (min-width: 993px) {
+    .my-modal-content {
+        width: 900px;
+    }
+}
+
+.my-modal-content {
+    margin: auto;
+    background-color: #fff;
+    position: relative;
+    padding: 0;
+    outline: 0;
+    width: 600px;
+}
+
+.my-white,
+.my-hover-white:hover {
+    color: #000!important;
+    background-color: #fff!important;
+}
+
+.my-wide {
+    letter-spacing: 4px;
+}
+
+.my-container,
+.my-panel {
+    padding: 0.01em 16px;
+}
+
+.fa {
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    font-size: 30px !important;
+    float: right;
+    color: inherit;
+    background-color: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.my-border {
+    border: 1px solid #ccc!important;
+}
+
+.my-input {
+    padding: 8px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+}
+
+#avatar {
+    border-bottom: none;
+}
+
+.my-button:hover {
+    color: #000!important;
+    background-color: #ccc!important;
+}
+
+.my-red,
+.my-hover-red:hover {
+    cursor: pointer;
+    color: #fff!important;
+    background-color: #f44336!important;
+    border: transparent;
+}
+
+.my-padding-large {
+    padding: 12px 24px!important;
+}
+
+
+/* .my-margin-bottom {
+    margin-bottom: 16px!important;
+} */
+
+.my-block {
+    display: block;
     width: 100%;
 }

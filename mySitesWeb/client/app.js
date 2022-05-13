@@ -4,14 +4,11 @@ const promise = require('promise');
 // get sites
 window.getSites = function getSites() {
         // create a promise for the axios request
-        let url
-        const promise = axios.get('http://localhost:3000/sites')
-
-        // using .then, create a new promise which extracts the data
+        let url = 'http://localhost:3000/sites';
+        const promise = axios.get(url)
+            // using .then, create a new promise which extracts the data
         const dataPromise = promise.then((response) => response.data)
-
-        // return it
-        return dataPromise
+        return dataPromise;
     }
     // now we can use that data from the outside!
 
@@ -33,24 +30,31 @@ window.getSites = function getSites() {
 
 window.getOneSite = async function getOneSite(siteId) {
     // Optionally the request above could also be done as
-    console.log("getOneSite siteId " + siteId);
+
     let url = 'http://localhost:3000/sites/' + siteId;
-    axios.get(url, {})
-        .then(function(response) {
-            console.log("getOneSite response ");
-            console.log(response);
+    // axios.get(url, {});
+    const promise = axios.get(url)
+        // using .then, create a new promise which extracts the data
+    const dataPromise = promise.then((response) => response.data)
+    return dataPromise
+        // console.log("getOneSite siteId " + siteId);
+        // let url = 'http://localhost:3000/sites/' + siteId;
+        // axios.get(url, {})
+        //     .then(function(response) {
+        //         console.log("getOneSite response ");
+        //         console.log(response);
+        //         return response.data;
 
-
-        })
-        .catch(function(error) {
-            console.log(error);
-        })
-        .then(function() {
-            // always executed
-        });
+    //     })
+    //     .catch(function(error) {
+    //         console.log(error);
+    //     })
+    //     .then(function() {
+    //         // always executed
+    //     });
 }
 
-window.deleteSite = function deleteSite(siteId) {
+window.deleteSite = async function deleteSite(siteId) {
         // Optionally the request above could also be done as
         console.log("deleteSite siteId " + siteId);
         let url = 'http://localhost:3000/sites/' + siteId;

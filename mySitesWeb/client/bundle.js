@@ -6,7 +6,10 @@ const promise = require('promise');
 window.getSites = function getSites() {
         // create a promise for the axios request
         let url = 'http://localhost:3000/sites';
-        return axios.get(url).then(response => response.data)
+        const promise = axios.get(url)
+            // using .then, create a new promise which extracts the data
+        const dataPromise = promise.then((response) => response.data)
+        return dataPromise;
     }
     // now we can use that data from the outside!
 
@@ -28,15 +31,20 @@ window.getSites = function getSites() {
 
 window.getOneSite = async function getOneSite(siteId) {
     // Optionally the request above could also be done as
-    console.log("getOneSite siteId " + siteId);
+
     let url = 'http://localhost:3000/sites/' + siteId;
-    return axios.get(url).then(response => response.data)
-
-    // axios.get(url, {})
-    //     .then(function(response) {
-    //         console.log("getOneSite response ");
-    //         console.log(response);
-
+    // axios.get(url, {});
+    const promise = axios.get(url)
+        // using .then, create a new promise which extracts the data
+    const dataPromise = promise.then((response) => response.data)
+    return dataPromise
+        // console.log("getOneSite siteId " + siteId);
+        // let url = 'http://localhost:3000/sites/' + siteId;
+        // axios.get(url, {})
+        //     .then(function(response) {
+        //         console.log("getOneSite response ");
+        //         console.log(response);
+        //         return response.data;
 
     //     })
     //     .catch(function(error) {
@@ -47,7 +55,7 @@ window.getOneSite = async function getOneSite(siteId) {
     //     });
 }
 
-window.deleteSite = function deleteSite(siteId) {
+window.deleteSite = async function deleteSite(siteId) {
         // Optionally the request above could also be done as
         console.log("deleteSite siteId " + siteId);
         let url = 'http://localhost:3000/sites/' + siteId;

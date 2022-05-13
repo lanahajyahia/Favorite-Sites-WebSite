@@ -3,6 +3,12 @@ body {
     background-color: #f8f8f8;
 }
 
+body,
+html,
+#siteIframe {
+    height: 100%;
+}
+
 a {
     color: black;
     text-decoration: none;
@@ -21,13 +27,15 @@ a {
 .topnav {
     text-align: center;
     display: flex;
+    justify-content: center;
 }
 
 .footer {
     font-size: 1.1rem;
     box-sizing: inherit;
-    margin: 50px 0;
+    margin: 0;
     display: flex;
+    padding: 1em;
     justify-content: center;
 }
 
@@ -36,7 +44,6 @@ header {
     padding: 30px;
     text-align: center;
     font-size: 35px;
-    color: white;
 }
 
 article {
@@ -60,4 +67,8 @@ article {
     display: flex;
     gap: 1em;
     overflow-x: auto;
+}
+
+#siteIframe {
+    width: 100%;
 }

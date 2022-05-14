@@ -1,6 +1,6 @@
 window.onload = () => {
     if (window.location.href == 'http://127.0.0.1:5500/mySitesWeb/client/index.html')
-        loadSites()
+        loadSites();
 }
 
 function loadSites() {
@@ -58,16 +58,24 @@ function createSiteBtn(site, siteName, containerDiv, index) {
         btn.classList.add("siteNameButton");
     }
     btn.onclick = function() {
-        let element = document.querySelector('.selected');
-        if (element) {
-            element.classList.toggle("selected");
-        }
+        // let element = document.querySelector('.selected');
+        // if (element) {
+        //     element.classList.toggle("selected");
+        // }
+        removeSelectedElement();
         btn.classList.toggle("selected");
         getClickedSite(site._id);
     };
 
     containerDiv.appendChild(btn);
 
+}
+
+function removeSelectedElement() {
+    let element = document.querySelector('.selected');
+    if (element) {
+        element.classList.toggle("selected");
+    }
 }
 
 function getClickedSite(siteId) {
@@ -132,6 +140,7 @@ function deleteClickedSite(siteId) {
     // get id of current first child
     let firstChild = document.getElementById("myTopNav").firstChild;
     if (firstChild) {
+        removeSelectedElement();
         let id = firstChild.id;
         firstChild.children[1].classList.add("selected")
             // get id and reload iframe of first child""
@@ -154,7 +163,7 @@ function saveNewSite() {
     let images = document.getElementsByName("image")[0].files;
 
     for (let i = 0; i < images.length; i++) {
-        imagesArr.push(images[i].name);
+        imagesArr.push("pictures/" + images[i].name);
     }
     let siteName = document.getElementsByName("siteName")[0].value;
     let citySiteName = document.getElementsByName("citySiteName")[0].value;
@@ -163,16 +172,22 @@ function saveNewSite() {
     if (!siteName) {
         $('#siteNameReq').css('display', 'block')
         reqFlag = true;
+    } else {
+        $('#siteNameReq').css('display', 'none')
     }
     if (!citySiteName) {
         $('#citySiteNameReq').css('display', 'block')
         reqFlag = true;
 
+    } else {
+        $('#citySiteNameReq').css('display', 'none')
     }
     if (!siteDesc) {
         $('#siteDescReq').css('display', 'block')
         reqFlag = true;
 
+    } else {
+        $('#siteDescReq').css('display', 'none')
     }
     if (!reqFlag) {
         document.getElementById('addSite').style.display = 'none';

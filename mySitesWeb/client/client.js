@@ -1,6 +1,6 @@
 window.onload = () => {
-    if (window.location.href == 'http://127.0.0.1:5500/mySitesWeb/client/index.html')
-        loadSites();
+    // if (window.location.href == 'http://127.0.0.1:5500/mySitesWeb/client/index.html')
+    loadSites();
 }
 
 function loadSites() {
@@ -38,7 +38,6 @@ function createRemoveSiteBtn(site, containerDiv) {
     xBtn.setAttribute("name", 'x');
     xBtn.setAttribute("title", 'remove site');
     xBtn.classList.add("removeSite"); // "fa", "fa-remove")
-    // xBtn.setAttribute("class", "removeSite");
     xBtn.style.display = 'none';
     xBtn.onclick = function() { deleteClickedSite(site._id) };
 
@@ -58,10 +57,6 @@ function createSiteBtn(site, siteName, containerDiv, index) {
         btn.classList.add("siteNameButton");
     }
     btn.onclick = function() {
-        // let element = document.querySelector('.selected');
-        // if (element) {
-        //     element.classList.toggle("selected");
-        // }
         removeSelectedElement();
         btn.classList.toggle("selected");
         getClickedSite(site._id);
@@ -112,8 +107,6 @@ function setSiteImages(siteImages) {
         console.log(siteImages[i]);
         let img = document.createElement('img');
         img.src = siteImages[i];
-        // let w = 100 / siteImages.length;
-        // img.style.width = w + "%";
         img.style.height = "300px";
         img.style.padding = "1em";
 
@@ -148,8 +141,6 @@ function deleteClickedSite(siteId) {
     } else {
         setDataIFrame('');
     }
-
-
 }
 
 function showXBtn() {
@@ -200,11 +191,5 @@ function saveNewSite() {
         createSite(siteJson);
         window.location.reload();
     }
-    // loadSites();
-    console.log(siteName);
-    console.log(citySiteName);
-    console.log(siteDesc);
-    console.log(imagesArr);
-
 
 }
